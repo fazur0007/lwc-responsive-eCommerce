@@ -1,0 +1,106 @@
+.slds-button_icon{
+    border: 2px solid ghostwhite;
+}
+.slds-modal__container {
+    max-width: 70rem!important;
+    width: auto;
+}
+.slds-text-title--caps{
+    height: 40px;
+}
+.customcss{
+    margin: 16px;
+}
+.slds-modal__close{
+    border: 1px solid white;
+}
+.slds-form-element__label{
+    font-size: smaller;
+}
+.btnCss{
+    margin: 17px;
+}
+.body-slds-myapp{
+    background: #fafafa;
+    padding: 22px;
+}
+.slds-global-header{
+    background: black;
+}
+.slds-box{
+    background: white;
+}
+.slds-card__body{
+    background:white;
+}
+.cssValues{
+    font-size: larger;
+    font-weight: 700;
+}
+.slds-table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.customtdcss:th {
+    text-align: left;
+    padding: 8px;
+}
+.slds-is-resizable:td {
+    text-align: left;
+    padding: 8px;
+}
+.customtrcss:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.cp-text{ 
+    color: rgba(0,0,0,.7); 
+    text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+}
+.slds-icon{
+    fill: cadetblue;
+}
+.btnCssfilters{
+    margin: 17px;
+    background-color: black;
+}
+.slds-button__icon{
+    fill: cadetblue;
+}
+.slds-modal__header{
+    background-color: #2b2b2d;
+    color: #ccc;
+    font-family: "Bitter",serif;
+}
+.customButtonCss{
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #ccf2f2;
+    font-family: Montserrat,sans-serif;
+    letter-spacing: -.5px;
+    /* font-size: 24px; */
+    font-weight: 700;
+    color: #007584;
+    /* width: 40%; */
+    /* padding: 10px 0; */
+    /* margin: 0 10px 11px; */
+    border: none;
+    position: relative;
+}
+.priceCustomCss{
+    font-family: Bitter;
+    letter-spacing: -0.5px;
+    font-size: inherit;
+    font-weight: bold;
+    color: #a25e41;
+}
+.slds-table_striped tbody tr:nth-of-type(even)>td, .slds-table_striped tbody tr:nth-of-type(even)>th, .slds-table--striped tbody tr:nth-of-type(even)>td, .slds-table--striped tbody tr:nth-of-type(even)>th {
+    background-color: #fafafa;
+}
+/*
+.combobox-css{
+    width: fit-content;
+}
+.slds-m-bottom_small{
+    width: fit-content;
+}
+*/

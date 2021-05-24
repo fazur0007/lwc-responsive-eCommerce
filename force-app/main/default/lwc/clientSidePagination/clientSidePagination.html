@@ -1,0 +1,245 @@
+<template>
+	<div style="background-color: #fff; position: relative;" class="slds-p-around_medium">
+		<div if:true={showSpinner}>
+			<lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+		</div>
+		<template if:true={isModalOpen}>
+			<section class="slds-modal slds-fade-in-open">
+				<div class="slds-modal__container">
+					<header class="slds-modal__header">
+						<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+							<lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small"></lightning-icon>
+							<span class="slds-assistive-text">Close</span>
+						</button>
+						<h2 class="slds-text-heading_medium slds-hyphenate">Product Details</h2>
+					</header>
+					<div class="slds-modal__content">
+						<div class="slds-modal__content slds-p-around--medium">
+							<div  class="migrationAssistant">
+								<div class="lightningView setupAssistantPageOverview" data-aura-class="setupAssistantPageOverview">
+									<div class="summaryContainer slds-m-vertical_large">
+										<div class="slds-grid slds-gutters slds-wrap">
+										<template for:each={rowDetails.Childs} for:item="childProducts">
+                                                <div key={childProducts.SkuCode} class="discoverAssistant slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                                                    <div class="setupAssistantSummaryCard" style="border: 1px solid rgba(0,0,0,.125)" data-aura-class="setupAssistantSummaryCard">
+                                                        <article class="slds-card">
+                                                            <div class="slds-card__body">
+                                                                <span class="uiImage" data-aura-class="uiImage">
+                                                                        <img src="https://www.beanz.com/content/dam/marketplace/us/assets/VEN31825/mbz31825cwa05012z/pdp.jpg" alt="" style="height: 262px;"/>
+                                                                    </span>
+                                                                    <div class="summaryInfo slds-card__body_inner" style="background-color: #faf7f5;">
+                                                                        <div>
+                                                                            <h5 class="slds-text-heading_medium slds-m-vertical_medium"> {childProducts.ProductName}</h5>
+                                                                                <div class="slds-form slds-text-body_regular" role="list">
+                                                                                    <div class="slds-form__row">
+                                                                                        <div class="slds-form__item" role="listitem">
+                                                                                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                                                                <span class="slds-form-element__label">Product Name</span>
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <div class="slds-form-element__static"> {childProducts.ProductName} </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="slds-form__item" role="listitem">
+                                                                                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                                                                <span class="slds-form-element__label">Sku Code</span>
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <div class="slds-form-element__static"> {childProducts.SkuCode} </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="slds-form__row">
+                                                                                        <div class="slds-form__item" role="listitem">
+                                                                                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                                                                <span class="slds-form-element__label">Bag Size</span>
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <div class="slds-form-element__static"> {childProducts.BagSize} </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="slds-form__item" role="listitem">
+                                                                                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                                                                <span class="slds-form-element__label">Grind Type</span>
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <div class="slds-form-element__static"> {childProducts.GrindType} </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="slds-form__row">
+                                                                                        <div class="slds-form__item" role="listitem">
+                                                                                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                                                                <span class="slds-form-element__label">Price</span>
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <div class="slds-form-element__static priceCustomCss"> ${childProducts.Price} </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="slds-form__item" role="listitem">
+                                                                                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                                                                                <span class="slds-form-element__label">Web Status</span>
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <div class="slds-form-element__static"> {childProducts.WebStatus} </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>                                                                   
+                                                                    <footer class="slds-card__footer">
+                                                                        <div class="slds-text-align_center">
+                                                                            <button class="slds-button slds-button_brand navigateAssistantButton customButtonCss" type="button" onclick={handleClick}>Hide</button>
+                                                                            <button class="slds-button slds-button_brand navigateAssistantButton customButtonCss" type="button" onclick={handleClick}>Visible</button>
+                                                                        </div>
+                                                                    </footer>
+                                                                </div>
+                                                                </div>
+                                                            </article>
+                                                        </div>
+                                                        <br/>
+                                                    </div>
+											</template>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="slds-backdrop slds-backdrop_open"></div>
+		</template>
+		<div class="body-slds-myapp slds-scrollable_x">
+			<div class="slds-clearfix">
+				<div class="slds-float_left">
+					<div class="">
+						<ul class="slds-list_horizontal" style="padding-left: 13px;">
+							<li>
+								<lightning-icon icon-name="utility:chart" size="small"></lightning-icon>
+							</li>
+							<li>
+								<h2 class="slds-text-heading--medium" style="font-weight: 600;">B2B DASHBOARD</h2>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+					<div class="slds-box slds-box_x-large slds-text-align_left slds-m-around_x-small" style="box-shadow: -10px 0px 10px 1px #aaaaaa;border-left-width: thick;border-left-color: cadetblue;">
+						<b style="color: gray;">VENDOR DETAILS</b><br />
+						<lightning-icon icon-name="utility:adduser" size="xx-small"></lightning-icon>&nbsp;<span class="cssValues">{vendorName}</span>
+					</div>
+				</div>
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+					<div class="slds-box slds-box_x-large slds-text-align_left slds-m-around_x-small" style="box-shadow: -10px 0px 10px 1px #aaaaaa;border-left-width: thick;border-left-color: cadetblue;">
+						<b style="color: gray;">TOTAL COUNT</b><br />
+						<lightning-icon icon-name="utility:touch_action" size="xx-small"></lightning-icon> &nbsp;<span class="cssValues">{totalRecords}</span>
+					</div>
+				</div>
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+					<div class="slds-box slds-box_x-large slds-text-align_left slds-m-around_x-small" style="box-shadow: -10px 0px 10px 1px #aaaaaa;border-left-width: thick;border-left-color: cadetblue;">
+						<b style="color: gray;">BEAN COUNT</b><br />
+						<lightning-icon icon-name="utility:touch_action" size="xx-small"></lightning-icon>&nbsp;<span class="cssValues">{holeBeanCount}</span>
+					</div>
+				</div>
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+					<div class="slds-box slds-box_x-large slds-text-align_left slds-m-around_x-small" style="box-shadow: -10px 0px 10px 1px #aaaaaa;border-left-width: thick;border-left-color: cadetblue;">
+						<b style="color: gray;">REVENUE</b><br />
+						<lightning-icon icon-name="utility:database" size="xx-small"></lightning-icon>&nbsp;<span class="cssValues">${totalRevenue}</span>
+					</div>
+				</div>
+			</div><br/><br/>
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_3-of-12">
+					<lightning-combobox class="combobox-css" name="object" variant="label-hidden" disabled={disableCombobox} value={recordSize} placeholder="Record Size" options={getRecordSizeList} onchange={handleRecordSizeChange}></lightning-combobox>&nbsp; </br>
+				</div>
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_3-of-12">
+					<!--
+					<lightning-input type="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search" value={searchKey} variant="label-hidden" placeholder="Type to search..."></lightning-input>
+					-->
+					</br>
+				</div>
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+						<div style="text-align:auto;font-weight:bold;"> {recordViewMessage} </div>
+				</div>
+			</div>
+			<br />
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12">
+					<div class="slds-table--header-fixed_container" style="height:450px;">
+						<div class="slds-scrollable_y" style="height:100%;">
+							<table style="table-layout:fixed;width:100%;border-collapse: collapse;height: 40px;white-space: break-spaces;" class="slds-table slds-table_bordered slds-table--header-fixed slds-table--striped slds-max-medium-table_stacked-horizontal slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-border_left slds-border_right slds-table--striped slds-max-medium-table_stacked-horizontal" role="grid">
+								<tr class="slds-line-height_reset slds-text-title_caps">
+									<!--
+								<th class="" style="width: 77px;background: #9fbfdf;color: #000000;font-weight: bolder;" scope="col">
+									<div class="slds-truncate slds-size_1-of-6 ">
+										<lightning-input onchange={allSelected} type="checkbox"></lightning-input>
+									</div>
+								</th>
+								-->
+									<th class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12 " scope="col" style="background: lightsteelblue;color: #000000;font-weight: bolder;">
+										<div class="slds-truncate" style="white-space: break-spaces;font-family: Montserrat,sans-serif;padding: 3px;" title="Action">Action</div>
+										<lightning-input type="text"  readonly></lightning-input>
+									</th>
+									<th class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12 " scope="col" style="background: lightsteelblue;color: #000000;font-weight: bolder;">
+										<div class="slds-truncate" style="white-space: break-spaces;font-family: Montserrat,sans-serif;padding: 3px;" title="Sku Code">Sku Code</div>
+										<lightning-input type="text" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search" value={searchKey} variant="label-hidden" placeholder="Search SKU"></lightning-input>
+									</th>
+									<th class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12 " scope="col" style="background: lightsteelblue;color: #000000;font-weight: bolder;">
+										<div class="slds-truncate" style="white-space: break-spaces;font-family: Montserrat,sans-serif;padding: 3px;" title="Product Name">Product Name</div>
+										<lightning-input type="text" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search" value={searchKey} variant="label-hidden" placeholder="Search Product Name"></lightning-input>
+									</th>
+								</tr>
+								<tbody>
+									<template for:each={displayRecords} for:item="account">
+										<tr key={account.Id}>
+											<!--
+										<th scope="col" style="width: 77px;" class="slds-size_1-of-6">
+											<div>
+												<lightning-input type="checkbox" value={account.Name} data-id={account.Id}></lightning-input>
+											</div>
+										</th>
+										-->
+											<td class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12" data-label="Action">
+												<div class="buttonMenu">
+													<lightning-button-menu alternative-text="Toggle menu" icon-name="utility:threedots">
+														<P onclick={viewDetails} data-recid={account.SkuCode}>
+															<lightning-menu-item label="View">
+															</lightning-menu-item>
+														</P>
+														<p onclick={editDetails} data-recid={account.SkuCode}>
+															<lightning-menu-item label="Edit">
+															</lightning-menu-item>
+														</p>
+													</lightning-button-menu>
+												</div>
+											</td>
+											<th scope="col" class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12" data-label="Sku Code">
+												<div>{account.SkuCode}</div>
+											</th>
+											<th scope="col" class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_12-of-12" data-label="Product Name">
+												<div>{account.ProductName}</div>
+											</th>
+										</tr>
+									</template>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>				
+			</div>
+            <br /><br />
+				<div class="slds-grid slds-wrap">
+					<div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12" style="float:right">
+					<lightning-button variant="brand" icon-name="utility:left" label="Previous" disabled={disablePreviousButtons} class="slds-m-top_medium" onclick={handleNavigation}></lightning-button> &nbsp; <lightning-button variant="brand" icon-name="utility:right" label="Next" disabled={disableNextButtons} class="slds-m-top_medium" onclick={handleNavigation}></lightning-button>
+					</br>
+				</div>
+				</div>
+				<br /><br />
+			<template if:true={isPanelExpand}>
+			</template>
+		</div>
+	</div>
+</template>
